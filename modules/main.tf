@@ -32,3 +32,11 @@ resource "azurerm_resource_group" "rg" {
 }
 
 
+
+output "name" {
+  
+}
+
+data "tfe_output" "this" {
+
+}
