@@ -6,6 +6,10 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "~>2.0"
     }
+    tfe = {
+      source = "hashicorp/tfe"
+      version = "0.43.0"
+    }
     random = {
       source  = "hashicorp/random"
       version = "~>3.0"
@@ -15,4 +19,8 @@ terraform {
 
 provider "azurerm" {
   features {}
+}
+
+provider "tfe" {
+  # Configuration options
 }

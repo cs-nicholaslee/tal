@@ -1,5 +1,16 @@
 ## main.tf terraform configuration
 #
+data "tfe_outputs" "tal_vnet" {
+  organization = local.organization
+  workspace = local.workspace
+}
+
+locals {
+  organization = "nicholaslee-org"
+  workspace = "tal-network"
+  vnet_name = data.tfe_outputs.tal_vnet.values.vnet_name
+}
+
 resource "azurerm_resource_group" "myresourcegroup" {
   name     = "${var.prefix}-workshop"
   location = var.location
@@ -9,16 +20,27 @@ resource "azurerm_resource_group" "myresourcegroup" {
   }
 }
 
-resource "azurerm_virtual_network" "vnet" {
-  name                = "${var.prefix}-vnet"
-  location            = azurerm_resource_group.myresourcegroup.location
-  address_space       = [var.address_space]
-  resource_group_name = azurerm_resource_group.myresourcegroup.name
+resource "azurerm_resource_group" "dbresourcegroup" {
+  count = 
+  name     = "${var.prefix}-workshop"
+  location = var.location
+
+  tags = {
+    environment = var.environment
+  }
 }
+
+# resource "azurerm_virtual_network" "vnet" {
+#   name                = "${var.prefix}-vnet"
+#   location            = azurerm_resource_group.myresourcegroup.location
+#   address_space       = [var.address_space]
+#   resource_group_name = azurerm_resource_group.myresourcegroup.name
+# }
 
 resource "azurerm_subnet" "subnet" {
   name                 = "${var.prefix}-subnet"
-  virtual_network_name = azurerm_virtual_network.vnet.name
+  # virtual_network_name = azurerm_virtual_network.vnet.name
+  virtual_network_name = local.vnet_name
   resource_group_name  = azurerm_resource_group.myresourcegroup.name
   address_prefixes     = [var.subnet_prefix]
 }
