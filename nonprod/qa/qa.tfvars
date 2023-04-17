@@ -1,5 +1,5 @@
-prefix = "nl-qa"
+prefix = "nl"
 location = "southeastasia"
 subnet_prefix = "10.0.20.0/24"
 environment = "Quality Assurance"
-placeholder = "fillmurray.com"
+placeholder = "loremflickr.com"

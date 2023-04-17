@@ -1,4 +1,4 @@
-prefix = "nl-dev"
+prefix = "nl"
 location = "southeastasia"
 subnet_prefix = "10.0.10.0/24"
 environment = "Development"
