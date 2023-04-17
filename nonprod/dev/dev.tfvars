@@ -1,8 +1,3 @@
-resource_group_location = "southeastasia"
-resource_group_name_prefix = "rg-dev"
-prefix = "nl"
-tags = {
-  managedby = "Terraform Cloud"
-  environment = "NonProd"
-  type = "Dev"
-}
+prefix = "nl-dev"
+location = "southeastasia"
+subnet_prefix = "10.0.10.0/24"

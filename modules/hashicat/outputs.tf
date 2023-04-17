@@ -18,6 +18,10 @@
 #   description = "AWS Key Pair: AWS key pair public key content"
 # }
 
-output "resource_group_name" {
-  value = azurerm_resource_group.rg.name
+output "catapp_url" {
+  value = "http://${azurerm_public_ip.catapp-pip.fqdn}"
+}
+
+output "catapp_ip" {
+  value = "http://${azurerm_public_ip.catapp-pip.ip_address}"
 }
