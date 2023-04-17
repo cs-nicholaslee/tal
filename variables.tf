@@ -15,3 +15,18 @@ variable "db_subnet_prefix" {}
 
 variable "app_placeholder" {}
 variable "db_placeholder" {}
+
+variable "create_lz" {
+  type = bool
+  default = false
+}
+
+variable "create_app" {
+  type = bool
+  default = false
+}
+
+variable "create_db" {
+  type = bool
+  default = false
+}

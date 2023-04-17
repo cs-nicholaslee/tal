@@ -2,7 +2,7 @@
 module "lz" {
   source = "./modules/network"
 
-  count = var.lz_prefix != null && var.lz_location != null && var.lz_environment != null ? 1:0
+  count = (var.create_lz ? 1 : 0)
 
   prefix      = try(var.lz_prefix)
   location    = try(var.lz_location)
@@ -12,7 +12,7 @@ module "lz" {
 module "app" {
   source = "./modules/hashicat"
 
-  count         = var.app_prefix != null && var.app_location != null && var.app_subnet_prefix != null && var.app_environment != null && var.app_placeholder != null ? 1 : 0
+  count = (var.create_app ? 1 : 0)
   prefix        = try(var.app_prefix)
   location      = try(var.app_location)
   subnet_prefix = try(var.app_subnet_prefix)
@@ -23,7 +23,7 @@ module "app" {
 module "db" {
   source = "./modules/hashicat"
 
-  count         = var.db_prefix != null && var.db_location != null && var.db_subnet_prefix != null && var.db_environment != null && var.db_placeholder != null ? 1 : 0
+  count = (var.create_db ? 1 : 0)
   prefix        = try(var.db_prefix)
   location      = try(var.db_location)
   subnet_prefix = try(var.db_subnet_prefix)
