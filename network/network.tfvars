@@ -1,5 +1,5 @@
 create_lz = "true"
-prefix = "tal"
-location = "southeastasia"
+lz_prefix = "tal"
+lz_location = "southeastasia"
 # subnet_prefix = "10.0.10.0/24"
-environment = "Non Production"
+lz_environment = "Non Production"

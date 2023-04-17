@@ -1,20 +1,20 @@
-variable "lz_prefix" {}
-variable "app_prefix" {}
-variable "db_prefix" {}
+variable "lz_prefix" { default = "" }
+variable "app_prefix" { default = "" } 
+variable "db_prefix" { default = "" }
 
-variable "lz_location" {}
-variable "app_location" {}
-variable "db_location" {}
+variable "lz_location" { default = "" }
+variable "app_location" { default = "" }
+variable "db_location" { default = "" }
 
-variable "lz_environment" {}
-variable "app_environment" {}
-variable "db_environment" {}
+variable "lz_environment" { default = "" }
+variable "app_environment" { default = "" }
+variable "db_environment" { default = "" }
 
-variable "app_subnet_prefix" {}
-variable "db_subnet_prefix" {}
+variable "app_subnet_prefix" { default = "" }
+variable "db_subnet_prefix" { default = "" }
 
-variable "app_placeholder" {}
-variable "db_placeholder" {}
+variable "app_placeholder" { default = "" }
+variable "db_placeholder" { default = "" }
 
 variable "create_lz" {
   type = bool
