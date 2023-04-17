@@ -7,14 +7,6 @@ variable "environment" {
 
 }
 
-variable "create_db" {
-  type = boolean
-}
-
-variable "create_app" {
-  type = boolean
-}
-
 variable "location" {
   description = "The region where the virtual network is created."
   default     = "centralus"
