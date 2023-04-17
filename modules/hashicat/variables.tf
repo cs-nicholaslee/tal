@@ -4,7 +4,15 @@ variable "prefix" {
 }
 
 variable "environment" {
-  
+
+}
+
+variable "create_db" {
+  type = boolean
+}
+
+variable "create_app" {
+  type = boolean
 }
 
 variable "location" {

@@ -2,17 +2,17 @@
 #
 data "tfe_outputs" "tal_vnet" {
   organization = local.organization
-  workspace = local.workspace
+  workspace    = local.workspace
 }
 
 locals {
   organization = "nicholaslee-org"
-  workspace = "tal-network"
-  vnet_name = data.tfe_outputs.tal_vnet.values.vnet_name
+  workspace    = "tal-network"
+  vnet_name    = data.tfe_outputs.tal_vnet.values.vnet_name
 }
 
 resource "azurerm_resource_group" "myresourcegroup" {
-  name     = "${var.prefix}-workshop"
+  name     = "${var.prefix}-app"
   location = var.location
 
   tags = {
@@ -21,8 +21,8 @@ resource "azurerm_resource_group" "myresourcegroup" {
 }
 
 resource "azurerm_resource_group" "dbresourcegroup" {
-  count = 
-  name     = "${var.prefix}-workshop"
+  create   = var.create
+  name     = "${var.prefix}-db"
   location = var.location
 
   tags = {
@@ -38,7 +38,7 @@ resource "azurerm_resource_group" "dbresourcegroup" {
 # }
 
 resource "azurerm_subnet" "subnet" {
-  name                 = "${var.prefix}-subnet"
+  name = "${var.prefix}-subnet"
   # virtual_network_name = azurerm_virtual_network.vnet.name
   virtual_network_name = local.vnet_name
   resource_group_name  = azurerm_resource_group.myresourcegroup.name
