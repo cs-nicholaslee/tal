@@ -21,7 +21,6 @@ resource "azurerm_resource_group" "myresourcegroup" {
 }
 
 resource "azurerm_resource_group" "dbresourcegroup" {
-  create   = var.create
   name     = "${var.prefix}-db"
   location = var.location
 
