@@ -34,3 +34,11 @@ module "db" {
 output "network" {
   value = module.lz
 }
+
+output "app" {
+  value = module.app
+}
+
+output "name" {
+  
+}

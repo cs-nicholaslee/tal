@@ -8,7 +8,7 @@ data "tfe_outputs" "tal_vnet" {
 locals {
   organization = "nicholaslee-org"
   workspace    = "tal-network"
-  vnet_name    = data.tfe_outputs.tal_vnet.values.vnet_name
+  vnet_name    = data.tfe_outputs.tal_vnet.values.network.vnet_name
 }
 
 resource "azurerm_resource_group" "myresourcegroup" {
