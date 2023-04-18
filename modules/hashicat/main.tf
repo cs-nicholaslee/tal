@@ -7,7 +7,7 @@ data "tfe_outputs" "tal_vnet" {
 
 locals {
   organization = "nicholaslee-org"
-  workspace    = "tal-network"
+  workspace    = "tal-nonprod-network"
   vnet_name    = jsondecode(data.tfe_outputs.tal_vnet.values.network).vnet_name
 }
 
