@@ -8,7 +8,7 @@ data "tfe_outputs" "tal_vnet" {
 locals {
   organization = "nicholaslee-org"
   workspace    = "tal-nonprod-network"
-  vnet_name    = lookup(data.tfe_outputs.tal_vnet.values, vnet_name, "")
+  vnet_name    = lookup(data.tfe_outputs.tal_vnet.values, "vnet_name", "")
 }
 
 resource "azurerm_resource_group" "myresourcegroup" {
