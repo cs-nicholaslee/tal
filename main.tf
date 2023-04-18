@@ -39,6 +39,6 @@ output "app" {
   value = module.app
 }
 
-output "name" {
-  
+output "db" {
+  value = module.db
 }
