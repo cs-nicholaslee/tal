@@ -32,5 +32,8 @@ module "db" {
 }
 
 output "network" {
-  value = tolist(module.lz.vnet_name, module.lz.rg_name)
+  value = tomap({
+    vnet_name = module.lz.vnet_name
+    rg_name = module.lz.rg_name
+  })
 }
