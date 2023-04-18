@@ -31,10 +31,6 @@ module "db" {
   placeholder   = try(var.placeholder)
 }
 
-output "network_rg_name" {
-  value = module.lz.rg_name
-}
-
-output "network_vnet_name" {
-  value = module.lz.vnet_name
+output "network" {
+  value = tolist(module.lz.vnet_name, module.lz.rg_name)
 }
