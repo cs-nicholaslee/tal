@@ -36,9 +36,9 @@ output "network" {
 }
 
 output "app" {
-  value = module.app
+  value = try(module.app)
 }
 
 output "db" {
-  value = module.db
+  value = try(module.db)
 }
