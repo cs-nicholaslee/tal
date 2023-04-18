@@ -158,7 +158,7 @@ resource "null_resource" "configure-cat-app" {
   }
 
   provisioner "file" {
-    source      = "./files"
+    source      = "modules/hashicat/files"
     destination = "/home/${var.admin_username}/"
 
     connection {
