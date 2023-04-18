@@ -4,30 +4,30 @@ module "lz" {
 
   count = (var.create_lz ? 1 : 0)
 
-  prefix      = try(var.lz_prefix)
-  location    = try(var.lz_location)
-  environment = try(var.lz_environment)
+  prefix      = try(var.prefix)
+  location    = try(var.location)
+  environment = try(var.environment)
 }
 
 module "app" {
   source = "./modules/hashicat"
 
   count = (var.create_app ? 1 : 0)
-  prefix        = try(var.app_prefix)
-  location      = try(var.app_location)
-  subnet_prefix = try(var.app_subnet_prefix)
-  environment   = try(var.app_environment)
-  placeholder   = try(var.app_placeholder)
+  prefix        = try(var.prefix)
+  location      = try(var.location)
+  subnet_prefix = try(var.subnet_prefix)
+  environment   = try(var.environment)
+  placeholder   = try(var.placeholder)
 }
 
 module "db" {
   source = "./modules/hashicat"
 
   count = (var.create_db ? 1 : 0)
-  prefix        = try(var.db_prefix)
-  location      = try(var.db_location)
-  subnet_prefix = try(var.db_subnet_prefix)
-  environment   = try(var.db_environment)
-  placeholder   = try(var.db_placeholder)
+  prefix        = try(var.prefix)
+  location      = try(var.location)
+  subnet_prefix = try(var.subnet_prefix)
+  environment   = try(var.environment)
+  placeholder   = try(var.placeholder)
 }
 
